@@ -1,0 +1,32 @@
+.main_search_title{
+  text-align: center;
+  margin-top: 10vw;
+}
+
+.main_search{
+  margin-top: 2vw;
+}
+
+.main_search input{
+  width: 60vw;
+  height: 4vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+.main_search button{
+  text-align: center;
+  margin-left: 45vw;
+  margin-top: 2vw;
+  padding: 1vw 3vw;
+  background-color: transparent;
+  border-style: solid;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+table, th, td{
+  border: 1px solid black;
+}

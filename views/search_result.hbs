@@ -1,0 +1,18 @@
+<h1>Search Result</h1>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>address</th>
+    <th>category</th>
+  </tr>
+  {{#each restaurants}}
+  <tr>
+    <td>{{id}}</td>
+    <td><a href="/restaurant/{{id}}">{{name}}</a></td>
+    <td>{{address}}</td>
+    <td>{{category}}</td>
+  </tr>
+  {{/each}}
+</table>
