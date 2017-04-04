@@ -34,7 +34,7 @@ app.get("/restaurant/:id", function(req, res, next){
   var id = req.params.id;
   db.one(`select * from restaurant where id = ${id}`)
     .then(function(restaurant){
-      return[restaurant, db.any(`select reviewer.name, review.title, review.review, review.stars from review join reviewer on reviewer.id = review.reviewer_id where review.restaurant_id = ${id}`)]
+      return[restaurant, db.any(`select reviewer.name, review.title, review.review, review.stars from review left outer join reviewer on reviewer.id = review.reviewer_id where review.restaurant_id = ${id}`)]
     })
     .spread(function(restaurant,reviews){
       res.render("restaurant.hbs", {
@@ -47,8 +47,8 @@ app.get("/restaurant/:id", function(req, res, next){
 
 app.post('/submit_review/:id', function(req, res, next){
   var id = req.params.id;
-  var title = req.body.title;
-  var review = req.body.review;
+  var title = req.body.title.replace(/(\')/g, "\'\'");
+  var review = req.body.review.replace(/(\')/g, "\'\'");
   var stars = Number(req.body.stars);
   db.none(`insert into review values (default, NULL, ${stars} ,'${title}','${review}',${id})`)
     .then(function(){
