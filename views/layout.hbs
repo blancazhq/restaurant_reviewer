@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <p>{{author}}</p>
+    <h2>
+    {{#if session.username}}
+      <p>hello! {{session.name}}</p>
+      <a href="/logout">Logout<a>
+    {{else}}
+      <a href="/login">Login<a>
+    {{/if}}
+    </h2>
     {{{body}}}
   </body>
 </html>

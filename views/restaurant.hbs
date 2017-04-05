@@ -24,8 +24,8 @@
   {{/each}}
 </table>
 
+{{#if session.username}}
 <h2>Submit your review for {{restaurant.name}}</h2>
-
 <form action="/submit_review/{{restaurant.id}}" method="post">
   <label>Title: </label><input type="text" name="title"><br>
   <label>Content: </label><input type="text" name="review"><br>
@@ -39,3 +39,4 @@
   </select><br>
   <button type="submit">submit</button>
 </form>
+{{/if}}
