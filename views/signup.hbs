@@ -1,0 +1,18 @@
+<form action="submit_signup" method="post">
+  <input id="signup_username" type="text" name="username" autocomplete="off">
+  <input id="signup_password" type="password" name="password" autocomplete="off">
+  <input id="signup_name" type="text" name="name" autocomplete="off">
+  <input id="signup_email" type="text" name="email" autocomplete="off">
+  <button>Submit</button>
+</form>
+
+<p id="username_result"></p>
+<p id="email_result"></p>
+
+{{#if session.isUsed}}
+<p>I told you your username is used...</p>
+{{/if}}
+
+{{#if session.badEmail}}
+<p>I told you your email is not valid...</p>
+{{/if}}
